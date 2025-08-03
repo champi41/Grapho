@@ -20,7 +20,7 @@ body{
     align-items: center;
     justify-content: ce;
     height: auto;
-    padding: 10px 10px;
+    padding: 10px 10px 40px ;
 }
 
 .main{
@@ -65,7 +65,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 100px);
+    min-height: 80%
 }
 .contenedorform {
     display: flex;
@@ -384,4 +384,53 @@ input{
 .delete-btn:hover {
     color: #f77; /* Un rojo más claro al pasar el mouse */
     transform: scale(1.1);
+}
+/* --- ESTILOS PARA LA PANTALLA DE MÓVILES --- */
+
+/* Media Query: Aplica estos estilos cuando el ancho de la pantalla es de 768px o menos */
+@media (max-width: 768px) {
+    /* Ocultar elementos en la pantalla de inicio para móvil */
+    .initial-screen h1 {
+        font-size: 2rem; /* Tamaño de fuente más pequeño para el título */
+    }
+
+    /* Ocultar la grilla de la pantalla de inicio en móvil */
+    .grid-example {
+        display: none;
+    }
+
+    /* Reducir el padding de los contenedores principales */
+    .contenedor, .malla-editor {
+        padding: 1rem;
+    }
+
+    /* Hacer que la grilla de semestres se apile verticalmente */
+    .semesters-grid {
+        /* En lugar de una grilla de columnas, los elementos se apilan */
+        grid-template-columns: 1fr; 
+        gap: 1rem; /* Reducir el espacio entre los semestres */
+    }
+
+    /* Asegurar que las tarjetas de semestre ocupen todo el ancho */
+    .semester-column {
+        width: 100%;
+        padding: 0.5rem; /* Ajustar padding */
+    }
+
+    /* Ajustar el tamaño de fuente en los encabezados */
+    .semester-column h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Ajustar el tamaño del botón flotante */
+    .floating-button {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    /* Reducir el padding y el tamaño del modal */
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
 }
