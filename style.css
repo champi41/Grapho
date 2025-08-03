@@ -227,8 +227,9 @@ input{
 }
 
 .mark-btn:hover {
-    color: var(--color-text-primary);
+    color: green;
     border-color: var(--color-text-primary);
+    transition: all 0.3s ease;
 }
 
 /* Estilo para la tarjeta del ramo cuando está completado */
@@ -242,9 +243,9 @@ input{
 
 /* Estilo para el botón de marcar cuando el ramo está completado */
 .ramo-card.completed .mark-btn {
-    background-color: bisque;
-    color: var(--color-accent-green);
-    border-color: var(--color-bg-main);
+    background-color: green;
+    color: #ffffff;
+
 }
 
 /* Estilo para las acciones del ramo (los botones) */
@@ -274,10 +275,12 @@ input{
 .ramo-actions button i {
     font-size: 1.2rem;
     color: var(--color-text-secondary); /* Color sutil para los íconos */
+    transition: all 0.3s ease;
 }
 
 .ramo-actions button:hover i {
-    color: #ffe4c4; /* Un color más claro al pasar el cursor */
+    color: #002f64; /* Un color más claro al pasar el cursor */
+    transition: all 0.3s ease;
 }
 
 /* Estilo del fondo oscuro del modal */
@@ -287,18 +290,20 @@ input{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.253);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
 }
 
 /* Contenido de la ventana modal */
 .modal-content {
-    background-color: #0d1117;
+    background-color: #ffffff00;
     color: #c9d1d9;
     padding: 20px;
+    border: solid 1px rgba(255, 255, 255, 0.13);
     border-radius: 30px;
     width: 100%;
     max-width: 600px;
@@ -306,6 +311,10 @@ input{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* El efecto de desenfoque se aplica a lo que está detrás */
+    backdrop-filter: blur(5px);
+    /* Asegura la compatibilidad con navegadores */
+    -webkit-backdrop-filter: blur(5px);
 }
 .input-group label{
     margin-right: 10px;
