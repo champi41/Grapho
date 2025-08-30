@@ -8,20 +8,16 @@
 }
 /* Paleta de colores principal */
 :root {
-    --color-principal: #3f2c23; 
-    --color-secundario: #d8bfa3; 
-    --color-fondo: #ecdcc8; 
-    --color-fondo-secundario: #715546; 
-    --color-texto: #3e2b23; 
-    --color-exito: green; 
-    --color-peligro: #dc3545; 
+    --color-1: #c3a995;
+    --color-2: #a07e69;
+    --color-3: #715546;
+    --color-4: #3e2b23;
 }
 
 body{
-
     height: 100vh;
-    background-color:var(--color-fondo);
-    color: var(--color-texto);
+    background-color:var(--color-1);
+    color: var(--color-4);
 }
 
 .navbar{
@@ -49,7 +45,7 @@ body{
 
 }
 .main p{
-    color: var(--color-texto);
+    color: var(--color-4);
     font-weight: 300;
     font-size: 20px;
     margin-top: 10px;
@@ -57,10 +53,10 @@ body{
 
 .main button{
     margin-top: 30px;
-    color: var(--color-texto);
-    background-color: var(--color-principal);
+    color: var(--color-1);
+    background-color: var(--color-4);
     padding: 6px 15px;
-    border: solid 1px var(--color-principal);
+    border: none;
     font-size: 25px;
     cursor: pointer;
     border-radius: 20px;
@@ -68,9 +64,8 @@ body{
 }
 
 .main button:hover{
-    background-color: var(--color-fondo);
-    color: var(--color-principal);
-    border: solid 1px var(--color-principal);
+    background-color: var(--color-3);
+    color: var(--color-1);
     transition: all 0.5s ease;
 }
 .contenedor{
@@ -84,7 +79,7 @@ body{
     width: auto;
     padding: 20px;
     gap: 10px;
-    background-color: var(--color-fondo-secundario);
+    background-color: var(--color-2);
     border-radius: 30px;
     text-align: center;
     flex-direction: column;
@@ -101,14 +96,13 @@ body{
 .contenedorform div p{
     font-size: 30px;
 }
-input{
-
+.contenedorform input{
     padding: 10px;
     font-size: 15px;
-    background-color: var(--color-fondo);
+    background-color: var(--color-3);
     border: none;
     border-radius: 7px;
-    color: var(--color-texto);
+    color: var(--color-1);
 }
 .contenedorform .divboton{
     justify-content: center;
@@ -117,19 +111,18 @@ input{
 
 .divboton button{
     margin-top: 10px;
-    color: var(--color-texto);
-    background-color: var(--color-principal);
+    color: var(--color-1);
+    background-color: var(--color-3);
+    border: none;
     padding: 6px 15px;
-    border: solid 1px var(--color-principal);
     font-size: 30px;
     cursor: pointer;
     border-radius: 20px;
     transition: all 0.3s ease;
 }
 .divboton button:hover{
-    background-color: var(--color-fondo-secundario);
-    color: var(--color-texto);
-    border: solid 1px var(--color-principal);
+    background-color: var(--color-4);
+    color: var(--color-1);
     transition: all 0.3s ease;
 }
 .centered-container{
@@ -148,23 +141,17 @@ input{
 
 /* Estilo para cada tarjeta de semestre */
 .semester-column {
-    background-color: var(--color-fondo-secundario); /* Usamos el color de tarjetas */
+    background-color: var(--color-2); /* Usamos el color de tarjetas */
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 32px;
     gap: 10px;
     width: 400px; /* Ancho fijo para cada tarjeta, puedes ajustarlo */
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-/* Estilo para el semestre cuando todos sus ramos están completados */
-.semester-column.semester-completed {
-    box-shadow: 0px 0px 15px var(--color-exito);
-    border-radius: 30px;
-    transition: all 0.5s ease;
-}
+
 .top{
     gap: 10px;
     display: flex;
@@ -176,7 +163,7 @@ input{
     padding: 10px;
     border-radius: 20px;
     font-size: 30px;
-    color: var(--color-fondo);
+    color: var(--color-4);
     display: flex;
     justify-content: left;
     width: auto;
@@ -191,17 +178,22 @@ input{
     justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: 20px;
+    border-radius: 22px;
     font-size: 20px;
     cursor: pointer;
-    color: var(--color-fondo);
+    color: var(--color-4);
     padding: 0;
     margin: 0;
     border: none;
     height: 51px;
-    width:51px;
-    background-color: var(--color-principal);
+    width:51px; 
+    background-color: var(--color-3);
+    transition: all 0.3s ease;
 
+}
+.mas button:hover{
+    background-color: var(--color-4);
+    transition: all 0.3s ease;
 }
 .ramos-list {
     gap: 10px;
@@ -224,21 +216,20 @@ input{
 }
 /* Estilo para cada tarjeta de ramo */
 .ramo-card{
-    background-color: var(--color-principal); /* Usar el fondo principal para las tarjetas de ramo */
-    color: ;
+    background-color: var(--color-3); /* Usar el fondo principal para las tarjetas de ramo */
+    color: var(--color-1);
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 22px;
     gap: 10px;
     display: flex;
     width: 100%;
     height: min-content;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid var(--color-bg-card); /* Borde sutil para separarlas */
     transition: all 0.3s ease;
 }
 .ramo-card span{
-    font-size: 17px;
+    font-size: 20px;
     display: block;
     width: max-content;
     overflow-wrap: break-word;
@@ -248,7 +239,8 @@ input{
 }
 /* Estilo para los ramos con prerrequisitos pendientes */
 .ramo-card.prerequisite-pending {
-    background-color: var(--color-fondo); /* Color de fondo distinto */
+    background-color: var(--color-2);
+    color: var(--color-4);
     box-shadow: none;
 }
 .ramo-card.prerequisite-pending .mark-btn{
@@ -256,16 +248,10 @@ input{
     transition: all 0.5s ease;
 }
 
-.mark-btn:hover {
-    color: green;
-    border-color: var(--color-text-primary);
-    transition: all 0.3s ease;
-}
-
 /* Estilo para la tarjeta del ramo cuando está completado */
 .ramo-card.completed {
-    background-color: var(--color-fondo-secundario);
-    border-color: var(--color-exito);
+    background-color: var(--color-4);
+    color: var(--color-1);
     transition: all 0.3s ease;
 }
 .ramo-card.completed span{
@@ -275,7 +261,7 @@ input{
 }
 /* Estilo para el botón de marcar cuando el ramo está completado */
 .ramo-card.completed .mark-btn {
-    background-color: green;
+    background-color: rgb(0, 100, 0);
     color: #ffffff;
     transition: all 0.5s ease;
 }
@@ -290,9 +276,9 @@ input{
 
 /* Estilo general para los nuevos botones de acción */
 .ramo-actions button {
-    border-radius: 10px;
-    background-color: var(--color-fondo);
-    color: var(--color-principal); /* Color sutil para los íconos */
+    border-radius: 12px;
+    background-color: var(--color-4);
+    color: var(--color-1); /* Color sutil para los íconos */
     border: none;
     cursor: pointer;
     padding: 0;
@@ -304,13 +290,18 @@ input{
     justify-content: center;
     transition: all 0.3s ease;
 }
-
-.ramo-actions button i {
-    font-size: 1.2rem;
-    
+.ramo-actions button:hover{
+    background-color: var(--color-1);
+    color: var(--color-4);
     transition: all 0.3s ease;
 }
-
+.ramo-actions button i {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+button{
+    box-shadow: 0px 1px 3px black;
+}
 
 /* Estilo del fondo oscuro del modal */
 .modal-overlay {
@@ -454,9 +445,6 @@ input{
     }
 
     /* Ajustar el tamaño de fuente en los encabezados */
-    .semester-column h2 {
-        font-size: 1.2rem;
-    }
     
     /* Ajustar el tamaño del botón flotante */
     .floating-button {
