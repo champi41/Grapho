@@ -1,18 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Funnel+Display:wght@300..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Mozilla+Headline:wght@200..700&display=swap');
 *{
-    font-family: "Faculty Glyphic", sans-serif;
+    font-family: "Mozilla Headline", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
+/* Paleta de colores principal */
+:root {
+    --color-principal: #3f2c23; 
+    --color-secundario: #d8bfa3; 
+    --color-fondo: #ecdcc8; 
+    --color-fondo-secundario: #715546; 
+    --color-texto: #3e2b23; 
+    --color-exito: green; 
+    --color-peligro: #dc3545; 
+}
 
 body{
 
     height: 100vh;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background-color:var(--color-fondo);
+    color: var(--color-texto);
 }
 
 .navbar{
@@ -22,11 +31,14 @@ body{
     height: auto;
     padding: 10px 10px 40px ;
 }
+.navbar h1{
+    font-size: 40px;
+}
 
 .main{
     display: flex;
     flex-direction: column;
-    height: 640px;
+    min-height: 80%;
     align-items: center;
     justify-content: center;
 }
@@ -37,7 +49,7 @@ body{
 
 }
 .main p{
-    color: #c9d1d9;
+    color: var(--color-texto);
     font-weight: 300;
     font-size: 20px;
     margin-top: 10px;
@@ -45,10 +57,10 @@ body{
 
 .main button{
     margin-top: 30px;
-    color: #c9d1d9;
-    background-color: #001f42;
+    color: var(--color-texto);
+    background-color: var(--color-principal);
     padding: 6px 15px;
-    border: solid 1px #001f42;
+    border: solid 1px var(--color-principal);
     font-size: 25px;
     cursor: pointer;
     border-radius: 20px;
@@ -56,9 +68,9 @@ body{
 }
 
 .main button:hover{
-    background-color: #0d1117;
-    color: #c9d1d9;
-    border: solid 1px #001f42;
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    border: solid 1px var(--color-principal);
     transition: all 0.5s ease;
 }
 .contenedor{
@@ -70,19 +82,19 @@ body{
 .contenedorform {
     display: flex;
     width: auto;
-    padding: 30px;
-    background-color: #161b22;
-    border-radius: 15px;
-    box-shadow:5px 5px 5px rgba(0, 0, 0, 0.501);
+    padding: 20px;
+    gap: 10px;
+    background-color: var(--color-fondo-secundario);
+    border-radius: 30px;
     text-align: center;
     flex-direction: column;
 }
 .contenedorform h2{
-    font-size: 60px;
+    font-size: 50px;
 
 }
 .contenedorform div{
-    margin-top: 10px;
+
     display: flex;
     justify-content: left;
 }
@@ -90,35 +102,35 @@ body{
     font-size: 30px;
 }
 input{
-    margin-top: 10px;
+
     padding: 10px;
-    height: 30px;
-    background-color: #0d1117;
+    font-size: 15px;
+    background-color: var(--color-fondo);
     border: none;
     border-radius: 7px;
-    color: #c9d1d9;
+    color: var(--color-texto);
 }
 .contenedorform .divboton{
     justify-content: center;
-    margin-top: 20px;
+
 }
 
 .divboton button{
     margin-top: 10px;
-    color: #c9d1d9;
-    background-color: #001f42;
+    color: var(--color-texto);
+    background-color: var(--color-principal);
     padding: 6px 15px;
-    border: solid 1px #001f42;
-    font-size: 25px;
+    border: solid 1px var(--color-principal);
+    font-size: 30px;
     cursor: pointer;
     border-radius: 20px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 .divboton button:hover{
-    background-color: #161b22;
-    color: #c9d1d9;
-    border: solid 1px #001f42;
-    transition: all 0.5s ease;
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto);
+    border: solid 1px var(--color-principal);
+    transition: all 0.3s ease;
 }
 .centered-container{
     display: flex;
@@ -131,22 +143,28 @@ input{
     flex-wrap: wrap; /* Permite que los semestres pasen a la siguiente fila */
     justify-content: center;
     gap: 10px;
-    padding: 0;
+    padding: 10px;
 }
 
 /* Estilo para cada tarjeta de semestre */
 .semester-column {
-    background-color: #161b22; /* Usamos el color de tarjetas */
+    background-color: var(--color-fondo-secundario); /* Usamos el color de tarjetas */
     padding: 10px;
     border-radius: 30px;
+    gap: 10px;
     width: 400px; /* Ancho fijo para cada tarjeta, puedes ajustarlo */
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.498);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
+/* Estilo para el semestre cuando todos sus ramos están completados */
+.semester-column.semester-completed {
+    box-shadow: 0px 0px 15px var(--color-exito);
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
 .top{
     gap: 10px;
     display: flex;
@@ -157,10 +175,11 @@ input{
 .top h2{
     padding: 10px;
     border-radius: 20px;
-    background-color: #0d1117;
+    font-size: 30px;
+    color: var(--color-fondo);
     display: flex;
     justify-content: left;
-    width: 100%;
+    width: auto;
     margin: 0;
 }
 .mas{
@@ -175,23 +194,25 @@ input{
     border-radius: 20px;
     font-size: 20px;
     cursor: pointer;
-    color: #c9d1d9;
+    color: var(--color-fondo);
     padding: 0;
     margin: 0;
-    border: solid 1px #c9d1d9;
+    border: none;
     height: 51px;
     width:51px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: var(--color-principal);
 
 }
 .ramos-list {
-
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
     min-height: 100px; /* Espacio mínimo para los ramos */
     width: 100%;
 }
 
+
 .add-ramo-btn {
-    margin-top: 1rem;
     width: 100%;
     /* El resto del estilo lo toma de la clase .primary que ya creamos */
 }
@@ -202,28 +223,37 @@ input{
     text-align: center;
 }
 /* Estilo para cada tarjeta de ramo */
-.ramo-card {
-    background-color: #0d1117; /* Usar el fondo principal para las tarjetas de ramo */
-    color: #c9d1d9;
-    padding: 10px 10px;
+.ramo-card{
+    background-color: var(--color-principal); /* Usar el fondo principal para las tarjetas de ramo */
+    color: ;
+    padding: 10px;
     border-radius: 20px;
-    margin-top: 10px;
+    gap: 10px;
     display: flex;
+    width: 100%;
+    height: min-content;
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--color-bg-card); /* Borde sutil para separarlas */
     transition: all 0.3s ease;
 }
+.ramo-card span{
+    font-size: 17px;
+    display: block;
+    width: max-content;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: left;
 
-/* Estilo para el botón de marcar (el de la '✓') */
-.mark-btn {
-    background: none;
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-text-secondary);
-    padding: 0.2rem 0.5rem;
-    border-radius: 50%; /* Para que sea circular */
-    cursor: pointer;
-    transition: all 0.3s ease;
+}
+/* Estilo para los ramos con prerrequisitos pendientes */
+.ramo-card.prerequisite-pending {
+    background-color: var(--color-fondo); /* Color de fondo distinto */
+    box-shadow: none;
+}
+.ramo-card.prerequisite-pending .mark-btn{
+    display: none;
+    transition: all 0.5s ease;
 }
 
 .mark-btn:hover {
@@ -234,32 +264,35 @@ input{
 
 /* Estilo para la tarjeta del ramo cuando está completado */
 .ramo-card.completed {
-    background-color: var(--color-accent-green); /* Usamos el verde que definimos para 'completado' */
-    color: var(--color-bg-main);
-    border-color: var(--color-accent-green);
-    /* Puedes añadir otros efectos, como texto tachado */
-    /* text-decoration: line-through; */
+    background-color: var(--color-fondo-secundario);
+    border-color: var(--color-exito);
+    transition: all 0.3s ease;
 }
-
+.ramo-card.completed span{
+    text-decoration: line-through;
+    color: var(--color-fondo);
+    transition: all 0.3s ease;
+}
 /* Estilo para el botón de marcar cuando el ramo está completado */
 .ramo-card.completed .mark-btn {
     background-color: green;
     color: #ffffff;
-
+    transition: all 0.5s ease;
 }
 
 /* Estilo para las acciones del ramo (los botones) */
 .ramo-actions {
-
+    
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Espacio entre los botones */
+    gap: 10px; /* Espacio entre los botones */
 }
 
 /* Estilo general para los nuevos botones de acción */
 .ramo-actions button {
     border-radius: 10px;
-    background-color: #161b22;
+    background-color: var(--color-fondo);
+    color: var(--color-principal); /* Color sutil para los íconos */
     border: none;
     cursor: pointer;
     padding: 0;
@@ -274,14 +307,10 @@ input{
 
 .ramo-actions button i {
     font-size: 1.2rem;
-    color: var(--color-text-secondary); /* Color sutil para los íconos */
+    
     transition: all 0.3s ease;
 }
 
-.ramo-actions button:hover i {
-    color: #002f64; /* Un color más claro al pasar el cursor */
-    transition: all 0.3s ease;
-}
 
 /* Estilo del fondo oscuro del modal */
 .modal-overlay {
@@ -290,7 +319,6 @@ input{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.253);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -301,13 +329,12 @@ input{
 /* Contenido de la ventana modal */
 .modal-content {
     background-color: #ffffff00;
-    color: #c9d1d9;
+    color: var(--color-texto);
     padding: 20px;
     border: solid 1px rgba(255, 255, 255, 0.13);
     border-radius: 30px;
     width: 100%;
     max-width: 600px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -320,12 +347,17 @@ input{
     margin-right: 10px;
 }
 .input-group input{
-    border: solid 1px #c9d1d9;
+    background-color: #00000000;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    font-size: 15px;
 }
 .input-group select{
-    background-color: #0d1117;
-    color: #c9d1d9;
-    border: solid 1px #c9d1d9;
+    background-color: #00000000;
+    color: var(--color-texto);
+    font-size: 15px;
+    padding: 5px;
+    border: solid 1px rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     cursor: pointer;
 }
@@ -343,31 +375,34 @@ input{
 }
 .modal-buttons .cancelar{
     cursor: pointer;
-    padding: 5px 20px;
-    color: #c9d1d9;
-    background-color: #161b22;
-    border: solid 1px #161b22;
+    padding: 0 20px;
+    font-size: 15px;
+    color: var(--color-texto);
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 .modal-buttons .cancelar:hover{
-    background-color: #0d1117;
-    border: solid 1px #c9d1d9;
+
+    border: solid 1px red;
     transition: all 0.5s ease;
+    color: red;
 }
 .modal-buttons .primary{
     cursor: pointer;
-    padding: 5px 20px;
-    color: #c9d1d9;
-    background-color: #161b22;
-    border: solid 1px #161b22;
+    font-size: 15px;
+    padding: 0px 20px;
+    color: var(--color-texto);
+    background-color: #00000000;
+    border: solid 1px rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     transition: all 0.5s ease;
 }
 .modal-buttons .primary:hover{
-   background-color: #0d1117;
-    border: solid 1px #c9d1d9;
-    transition: all 0.5s ease;
+    border: solid 1px green;
+    transition: all 0.3s ease;
+    color: green;
 }
 /* Nuevo estilo para el botón de eliminar */
 .delete-btn {
@@ -385,6 +420,7 @@ input{
     color: #f77; /* Un rojo más claro al pasar el mouse */
     transform: scale(1.1);
 }
+
 /* --- ESTILOS PARA LA PANTALLA DE MÓVILES --- */
 
 /* Media Query: Aplica estos estilos cuando el ancho de la pantalla es de 768px o menos */
@@ -401,20 +437,20 @@ input{
 
     /* Reducir el padding de los contenedores principales */
     .contenedor, .malla-editor {
-        padding: 1rem;
+        padding: 5px;
     }
 
     /* Hacer que la grilla de semestres se apile verticalmente */
     .semesters-grid {
         /* En lugar de una grilla de columnas, los elementos se apilan */
         grid-template-columns: 1fr; 
-        gap: 1rem; /* Reducir el espacio entre los semestres */
+        gap: 10px; /* Reducir el espacio entre los semestres */
     }
 
     /* Asegurar que las tarjetas de semestre ocupen todo el ancho */
     .semester-column {
         width: 100%;
-        padding: 0.5rem; /* Ajustar padding */
+        padding: 15px; /* Ajustar padding */
     }
 
     /* Ajustar el tamaño de fuente en los encabezados */
