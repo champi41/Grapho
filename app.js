@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Reconstruir la malla
             displayCareerName.textContent = mallaData.careerName;
             generateSemesterCards(mallaData.semesters.length, mallaData);
+            updateAllRamosVisuals();
+            updateSemesterVisuals();
             
         } else {
             // Si no hay datos, mostrar la pantalla inicial
@@ -133,13 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+    // --- FUNCIONES DE GENERACIÓN Y MANIPULACIÓN DEL DOM ---
     function addRamoToSemester(semesterId, ramoName, prerequisite = '', isCompleted = false) {
         const ramosList = document.getElementById(`ramos-list-${semesterId}`);
         const completedClass = isCompleted ? 'completed' : '';
+        
+        // Al añadir un nuevo ramo, también necesitamos un nuevo atributo para el prerrequisito pendiente
+        const prerequisitePendingClass = prerequisite && !isCompleted ? 'prerequisite-pending' : '';
 
         const ramoCardHTML = `
-            <div class="ramo-card ${completedClass}" data-ramo-prerequisitos="${prerequisite}">
+            <div class="ramo-card ${completedClass} ${prerequisitePendingClass}" data-ramo-prerequisitos="${prerequisite}">
                 <span>${ramoName}</span>
                 <div class="ramo-actions">
                     <button class="edit-ramo-btn" data-ramo-name="${ramoName}" data-semester="${semesterId}">
@@ -150,8 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         ramosList.insertAdjacentHTML('beforeend', ramoCardHTML);
+        updateAllRamosVisuals(); // Llamar para actualizar los estilos de toda la malla
     }
-    
+
     // Un solo listener para manejar todos los clics en el grid
     semestersGrid.addEventListener('click', (event) => {
         const addRamoBtn = event.target.closest('.add-ramo-btn');
@@ -163,7 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (ramoName && ramoName.trim() !== '') {
                 addRamoToSemester(semesterId, ramoName.trim());
-                saveMallaToLocalStorage(); // Guardar después de añadir
+                saveMallaToLocalStorage();
+                updateAllRamosVisuals();
+                updateSemesterVisuals(); // <-- LLAMADA IMPORTANTE
             } else if (ramoName !== null) {
                 alert('El nombre del ramo no puede estar vacío.');
             }
@@ -177,7 +185,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const canBeMarked = checkPrerequisites(ramoCard);
                     if (canBeMarked) {
                         ramoCard.classList.add('completed');
-                        saveMallaToLocalStorage(); // Guardar después de marcar
+                        saveMallaToLocalStorage();
+                        updateAllRamosVisuals();
+                        updateSemesterVisuals(); // <-- LLAMADA IMPORTANTE
                     } else {
                         alert('No puedes marcar este ramo como completado. ¡Primero debes completar su prerrequisito!');
                     }
@@ -185,7 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const hasDependents = checkDependents(ramoCard);
                     if (!hasDependents) {
                         ramoCard.classList.remove('completed');
-                        saveMallaToLocalStorage(); // Guardar después de desmarcar
+                        saveMallaToLocalStorage();
+                        updateAllRamosVisuals();
+                        updateSemesterVisuals(); // <-- LLAMADA IMPORTANTE
                     } else {
                         alert('No puedes desmarcar este ramo. Debes desmarcar los ramos que dependen de él primero.');
                     }
@@ -196,15 +208,63 @@ document.addEventListener('DOMContentLoaded', () => {
         const editRamoBtn = event.target.closest('.edit-ramo-btn');
         if (editRamoBtn) {
             currentRamoCard = editRamoBtn.closest('.ramo-card');
-            const currentRamoName = editRamoBtn.dataset.ramoName;
+            const currentRamoName = currentRamoCard.querySelector('span').textContent;
             const currentSemester = parseInt(editRamoBtn.dataset.semester);
 
             editRamoNameInput.value = currentRamoName;
+            prerequisiteSelect.value = currentRamoCard.dataset.ramoPrerequisitos || '';
             populatePrerequisiteSelect(currentSemester);
             
             editModal.style.display = 'flex';
         }
     });
+
+    function updateSemesterVisuals() {
+        const semesterColumns = document.querySelectorAll('.semester-column');
+        
+        semesterColumns.forEach(semesterColumn => {
+            const ramoCards = semesterColumn.querySelectorAll('.ramo-card');
+            
+            if (ramoCards.length === 0) {
+                // Si el semestre no tiene ramos, no puede estar completado
+                semesterColumn.classList.remove('semester-completed');
+                return;
+            }
+
+            // `every()` retorna true si todos los elementos cumplen la condición
+            const allRamosCompleted = Array.from(ramoCards).every(card => {
+                return card.classList.contains('completed');
+            });
+
+            if (allRamosCompleted) {
+                semesterColumn.classList.add('semester-completed');
+            } else {
+                semesterColumn.classList.remove('semester-completed');
+            }
+        });
+    }
+
+
+    // NUEVA FUNCIÓN: Actualiza el estado visual de todos los ramos
+    function updateAllRamosVisuals() {
+        const allRamoCards = document.querySelectorAll('.ramo-card');
+        
+        allRamoCards.forEach(ramoCard => {
+            const hasPrerequisite = !!ramoCard.dataset.ramoPrerequisitos;
+            const isCompleted = ramoCard.classList.contains('completed');
+            
+            if (hasPrerequisite && !isCompleted) {
+                const prerequisiteIsReady = checkPrerequisites(ramoCard);
+                if (!prerequisiteIsReady) {
+                    ramoCard.classList.add('prerequisite-pending');
+                } else {
+                    ramoCard.classList.remove('prerequisite-pending');
+                }
+            } else {
+                ramoCard.classList.remove('prerequisite-pending');
+            }
+        });
+    }
 
     closeModalBtn.addEventListener('click', () => {
         editModal.style.display = 'none';
@@ -222,6 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentRamoCard.dataset.ramoPrerequisitos = newPrerequisite;
         editModal.style.display = 'none';
         saveMallaToLocalStorage(); // Guardar después de editar
+        updateAllRamosVisuals();
+        updateSemesterVisuals();
     });
     
     deleteRamoBtn.addEventListener('click', () => {
@@ -231,6 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             editModal.style.display = 'none';
             saveMallaToLocalStorage(); // Guardar después de eliminar
+            updateAllRamosVisuals();
+            updateSemesterVisuals();
         }
     });
     
