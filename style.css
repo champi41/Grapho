@@ -1,460 +1,615 @@
-@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Mozilla+Headline:wght@200..700&display=swap');
-*{
-    font-family: "Mozilla Headline", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Mozilla+Headline:wght@200..700&display=swap");
+* {
+  font-family: "Mozilla Headline", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 /* Paleta de colores principal */
 :root {
-    --color-1: #c3a995;
-    --color-2: #a07e69;
-    --color-3: #715546;
-    --color-4: #3e2b23;
+  --color-1: #c3a995;
+  --color-2: #a07e69;
+  --color-3: #715546;
+  --color-4: #3e2b23;
 }
 
-body{
-    height: 100vh;
-    background-color:var(--color-1);
-    color: var(--color-4);
+body {
+  height: 100vh;
+  background-color: var(--color-1);
+  color: var(--color-4);
 }
 
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: ce;
-    height: auto;
-    padding: 10px 10px 40px ;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: ce;
+  height: auto;
+  padding: 10px 10px;
 }
-.navbar h1{
-    font-size: 40px;
-}
-
-.main{
-    display: flex;
-    flex-direction: column;
-    min-height: 80%;
-    align-items: center;
-    justify-content: center;
+.navbar h1 {
+  font-size: 40px;
 }
 
-.main h1{
-    font-weight: 600;
-    font-size: 70px;
-
-}
-.main p{
-    color: var(--color-4);
-    font-weight: 300;
-    font-size: 20px;
-    margin-top: 10px;
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 80%;
+  align-items: center;
+  justify-content: center;
 }
 
-.main button{
-    margin-top: 30px;
-    color: var(--color-1);
-    background-color: var(--color-4);
-    padding: 6px 15px;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: all 0.5s ease;
+.main h1 {
+  font-weight: 600;
+  font-size: 70px;
+}
+.main p {
+  color: var(--color-4);
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 10px;
 }
 
-.main button:hover{
-    background-color: var(--color-3);
-    color: var(--color-1);
-    transition: all 0.5s ease;
+.main button {
+  margin-top: 30px;
+  color: var(--color-1);
+  background-color: var(--color-4);
+  padding: 6px 15px;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.5s ease;
 }
-.contenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80%
+
+.main button:hover {
+  background-color: var(--color-3);
+  color: var(--color-1);
+  transition: all 0.5s ease;
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80%;
 }
 .contenedorform {
-    display: flex;
-    width: auto;
-    padding: 20px;
-    gap: 10px;
-    background-color: var(--color-2);
-    border-radius: 30px;
-    text-align: center;
-    flex-direction: column;
+  display: flex;
+  width: auto;
+  padding: 20px;
+  gap: 10px;
+  background-color: var(--color-2);
+  border-radius: 30px;
+  text-align: center;
+  flex-direction: column;
 }
-.contenedorform h2{
-    font-size: 50px;
-
+.contenedorform h2 {
+  font-size: 50px;
 }
-.contenedorform div{
-
-    display: flex;
-    justify-content: left;
+.contenedorform div {
+  display: flex;
+  justify-content: left;
 }
-.contenedorform div p{
-    font-size: 30px;
+.contenedorform div p {
+  font-size: 30px;
 }
-.contenedorform input{
-    padding: 10px;
-    font-size: 15px;
-    background-color: var(--color-3);
-    border: none;
-    border-radius: 7px;
-    color: var(--color-1);
+.contenedorform input {
+  padding: 10px;
+  font-size: 15px;
+  background-color: var(--color-3);
+  border: none;
+  border-radius: 7px;
+  color: var(--color-1);
 }
-.contenedorform .divboton{
-    justify-content: center;
-
+.contenedorform .divboton {
+  justify-content: center;
 }
 
-.divboton button{
-    margin-top: 10px;
-    color: var(--color-1);
-    background-color: var(--color-3);
-    border: none;
-    padding: 6px 15px;
-    font-size: 30px;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: all 0.3s ease;
+.divboton button {
+  margin-top: 10px;
+  color: var(--color-1);
+  background-color: var(--color-3);
+  border: none;
+  padding: 6px 15px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
-.divboton button:hover{
-    background-color: var(--color-4);
-    color: var(--color-1);
-    transition: all 0.3s ease;
+.divboton button:hover {
+  background-color: var(--color-4);
+  color: var(--color-1);
+  transition: all 0.3s ease;
 }
-.centered-container{
-    display: flex;
-    flex-direction: column;
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
+.centered-container header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 15px;
+  background-color: var(--color-4);
+  padding: 10px;
+  border-radius: 30px;
+  gap: 5px;
+}
+.centered-container header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  width: max-content;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: var(--color-1);
+}
+.centered-container header .btnMalla {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.btnMalla button {
+  background-color: var(--color-1);
+  font-size: 27px;
+  cursor: pointer;
+  display: flex;
+  gap: 0;
+  height: min-content;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.btnMalla button span {
+  display: flex;
+  align-items: center;
+  font-size: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.btnMalla button i {
+  color: var(--color-4);
+}
+.btnMalla:hover button {
+  transition: all 0.3s ease;
+  gap: 5px;
+}
+.btnMalla:hover button:hover {
+  background-color: var(--color-2);
+}
+.btnMalla:hover button span {
+  width: auto;
+  font-size: 22px;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
 /* Contenedor principal de los semestres */
 .semesters-grid-container {
-
-    display: flex;
-    flex-wrap: wrap; /* Permite que los semestres pasen a la siguiente fila */
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* Permite que los semestres pasen a la siguiente fila */
+  justify-content: center;
+  gap: 15px;
+  padding: 0px 15px;
 }
 
 /* Estilo para cada tarjeta de semestre */
 .semester-column {
-    background-color: var(--color-2); /* Usamos el color de tarjetas */
-    padding: 10px;
-    border-radius: 32px;
-    gap: 10px;
-    width: 400px; /* Ancho fijo para cada tarjeta, puedes ajustarlo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  background-color: var(--color-2); /* Usamos el color de tarjetas */
+  padding: 15px;
+  border-radius: 32px;
+  gap: 10px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.top{
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.top {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
-.top h2{
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 30px;
-    color: var(--color-4);
-    display: flex;
-    justify-content: left;
-    width: auto;
-    margin: 0;
+.top h2 {
+  border-radius: 20px;
+  font-size: 30px;
+  color: var(--color-4);
+  display: flex;
+  justify-content: left;
+  width: auto;
 }
-.mas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.mas button{
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 22px;
-    font-size: 20px;
-    cursor: pointer;
-    color: var(--color-4);
-    padding: 0;
-    margin: 0;
-    border: none;
-    height: 51px;
-    width:51px; 
-    background-color: var(--color-3);
-    transition: all 0.3s ease;
-
+.mas button {
+  display: flex;
+  border-radius: 17px;
+  font-size: 22px;
+  gap: 0;
+  cursor: pointer;
+  color: var(--color-4);
+  padding: 7px;
+  border: none;
+  background-color: var(--color-3);
+  transition: all 0.3s ease;
 }
-.mas button:hover{
-    background-color: var(--color-4);
-    transition: all 0.3s ease;
+.mas button .agregar {
+  display: flex;
+  align-items: center;
+  color: var(--color-1);
+  font-size: 0;
+  width: 0;
+  opacity: 0;
+  overflow: hidden; /* Oculta el contenido que se desborda del ancho 0 */
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Evita que el texto salte de línea */
+}
+.mas button i {
+  color: var(--color-1);
+}
+.mas button:hover {
+  background-color: var(--color-4);
+  transition: all 0.3s ease;
+  gap: 5px;
+}
+.mas button:hover .agregar {
+  width: auto;
+  font-size: 15px;
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 .ramos-list {
-    gap: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 100px; /* Espacio mínimo para los ramos */
-    width: 100%;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  height: min-content; /* Espacio mínimo para los ramos */
+  width: 100%;
 }
-
 
 .add-ramo-btn {
-    width: 100%;
-    /* El resto del estilo lo toma de la clase .primary que ya creamos */
+  width: 100%;
+  /* El resto del estilo lo toma de la clase .primary que ya creamos */
 }
 
-/* Estilo para el encabezado del editor de malla */
-.malla-header {
-    margin-bottom: 2rem;
-    text-align: center;
-}
 /* Estilo para cada tarjeta de ramo */
-.ramo-card{
-    background-color: var(--color-3); /* Usar el fondo principal para las tarjetas de ramo */
-    color: var(--color-1);
-    padding: 10px;
-    border-radius: 22px;
-    gap: 10px;
-    display: flex;
-    width: 100%;
-    height: min-content;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
+.ramo-card {
+  background-color: var(
+    --color-3
+  ); /* Usar el fondo principal para las tarjetas de ramo */
+  color: var(--color-1);
+  padding: 10px;
+  border-radius: 22px;
+  gap: 10px;
+  display: flex;
+  width: 100%;
+  height: min-content;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
 }
-.ramo-card span{
-    font-size: 20px;
-    display: block;
-    width: max-content;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    text-align: left;
-
+.ramo-card span {
+  font-size: 20px;
+  display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
 }
 /* Estilo para los ramos con prerrequisitos pendientes */
 .ramo-card.prerequisite-pending {
-    background-color: var(--color-2);
-    color: var(--color-4);
-    box-shadow: none;
+  background-color: var(--color-2);
+  color: var(--color-4);
+  box-shadow: none;
 }
-.ramo-card.prerequisite-pending .mark-btn{
-    display: none;
-    transition: all 0.5s ease;
+.ramo-card.prerequisite-pending .mark-btn {
+  display: none;
+  transition: all 0.5s ease;
 }
 
 /* Estilo para la tarjeta del ramo cuando está completado */
 .ramo-card.completed {
-    background-color: var(--color-4);
-    color: var(--color-1);
-    transition: all 0.3s ease;
+  background-color: var(--color-4);
+  color: var(--color-1);
+  transition: all 0.3s ease;
 }
-.ramo-card.completed span{
-    text-decoration: line-through;
-    color: var(--color-fondo);
-    transition: all 0.3s ease;
+.ramo-card.completed span {
+  text-decoration: line-through;
+  color: var(--color-fondo);
+  transition: all 0.3s ease;
 }
 /* Estilo para el botón de marcar cuando el ramo está completado */
 .ramo-card.completed .mark-btn {
-    background-color: rgb(0, 100, 0);
-    color: #ffffff;
-    transition: all 0.5s ease;
+  background-color: rgb(0, 100, 0);
+  color: #ffffff;
+  transition: all 0.5s ease;
 }
 
 /* Estilo para las acciones del ramo (los botones) */
 .ramo-actions {
-    
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacio entre los botones */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre los botones */
 }
 
 /* Estilo general para los nuevos botones de acción */
 .ramo-actions button {
-    border-radius: 12px;
-    background-color: var(--color-4);
-    color: var(--color-1); /* Color sutil para los íconos */
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    height: 25px; /* Ajusta la altura para que se vean bien */
-    width: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+  border-radius: 12px;
+  background-color: var(--color-4);
+  color: var(--color-1); /* Color sutil para los íconos */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  height: 25px; /* Ajusta la altura para que se vean bien */
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
-.ramo-actions button:hover{
-    background-color: var(--color-1);
-    color: var(--color-4);
-    transition: all 0.3s ease;
+.ramo-actions button:hover {
+  background-color: var(--color-1);
+  color: var(--color-4);
+  transition: all 0.3s ease;
 }
 .ramo-actions button i {
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
-button{
-    box-shadow: 0px 1px 3px black;
+button {
+  box-shadow: 0px 1px 3px black;
 }
 
 /* Estilo del fondo oscuro del modal */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 /* Contenido de la ventana modal */
 .modal-content {
-    background-color: #ffffff00;
-    color: var(--color-texto);
-    padding: 20px;
-    border: solid 1px rgba(255, 255, 255, 0.13);
-    border-radius: 30px;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* El efecto de desenfoque se aplica a lo que está detrás */
-    backdrop-filter: blur(5px);
-    /* Asegura la compatibilidad con navegadores */
-    -webkit-backdrop-filter: blur(5px);
+  background-color: rgba(195, 169, 149, 0.25);
+  color: var(--color-4);
+  padding: 20px;
+  border: solid 1px rgba(255, 255, 255, 0.13);
+  border-radius: 30px;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
 }
-.input-group label{
-    margin-right: 10px;
+.input-group label {
+  margin-right: 10px;
 }
-.input-group input{
-    background-color: #00000000;
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    padding: 5px;
-    font-size: 15px;
+.input-group input {
+  background-color: #00000000;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
 }
-.input-group select{
-    background-color: #00000000;
-    color: var(--color-texto);
-    font-size: 15px;
-    padding: 5px;
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    cursor: pointer;
+.input-group select {
+  background-color: #00000000;
+  color: var(--color-texto);
+  font-size: 15px;
+  padding: 5px;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
 }
 .modal-content h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
+  margin-top: 0;
+  font-size: 1.5rem;
 }
 
 .modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-    gap: 10px;
-    
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
 }
-.modal-buttons .cancelar{
-    cursor: pointer;
-    padding: 0 20px;
-    font-size: 15px;
-    color: var(--color-texto);
-    background-color: rgba(0, 0, 0, 0);
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    transition: all 0.3s ease;
+.modal-buttons .cancelar {
+  cursor: pointer;
+  padding: 0 20px;
+  font-size: 15px;
+  color: var(--color-texto);
+  background-color: rgba(0, 0, 0, 0);
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
-.modal-buttons .cancelar:hover{
-
-    border: solid 1px red;
-    transition: all 0.5s ease;
-    color: red;
+.modal-buttons .cancelar:hover {
+  border: solid 1px red;
+  transition: all 0.5s ease;
+  color: red;
 }
-.modal-buttons .primary{
-    cursor: pointer;
-    font-size: 15px;
-    padding: 0px 20px;
-    color: var(--color-texto);
-    background-color: #00000000;
-    border: solid 1px rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    transition: all 0.5s ease;
+.modal-buttons .primary {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0px 20px;
+  color: var(--color-texto);
+  background-color: #00000000;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition: all 0.5s ease;
 }
-.modal-buttons .primary:hover{
-    border: solid 1px green;
-    transition: all 0.3s ease;
-    color: green;
+.modal-buttons .primary:hover {
+  border: solid 1px green;
+  transition: all 0.3s ease;
+  color: green;
 }
 /* Nuevo estilo para el botón de eliminar */
 .delete-btn {
+  display: flex;
 
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #ff3838; /* Un rojo vibrante */
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
+  border-radius: 10px;
+  background: none;
+  border: solid 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  color: red; /* Un rojo vibrante */
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .delete-btn:hover {
-    color: #f77; /* Un rojo más claro al pasar el mouse */
-    transform: scale(1.1);
+  color: red; /* Un rojo más claro al pasar el mouse */
+  transform: scale(1.1);
+  border: solid 1px red;
 }
 
 /* --- ESTILOS PARA LA PANTALLA DE MÓVILES --- */
+@media (min-width: 600px) and (max-width: 1000px) {
+  .navbar h1 {
+    font-size: 30px;
+  }
+  .centered-container header h1 {
+    font-size: 20px;
+  }
+  .semesters-grid-container {
+    /* En pantallas pequeñas, haz que cada semestre ocupe toda la fila */
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
+    gap: 10px;
+  }
+  .centered-container header {
+    margin: 0px 10px;
+  }
+  .centered-container {
+    gap: 10px;
+  }
+  /* Ocultar elementos en la pantalla de inicio para móvil */
+  .initial-screen h1 {
+    font-size: 2rem; /* Tamaño de fuente más pequeño para el título */
+  }
 
-/* Media Query: Aplica estos estilos cuando el ancho de la pantalla es de 768px o menos */
-@media (max-width: 768px) {
-    /* Ocultar elementos en la pantalla de inicio para móvil */
-    .initial-screen h1 {
-        font-size: 2rem; /* Tamaño de fuente más pequeño para el título */
-    }
+  /* Ocultar la grilla de la pantalla de inicio en móvil */
+  .grid-example {
+    display: none;
+  }
 
-    /* Ocultar la grilla de la pantalla de inicio en móvil */
-    .grid-example {
-        display: none;
-    }
+  /* Reducir el padding de los contenedores principales */
+  .contenedor,
+  .malla-editor {
+    padding: 5px;
+  }
 
-    /* Reducir el padding de los contenedores principales */
-    .contenedor, .malla-editor {
-        padding: 5px;
-    }
+  /* Hacer que la grilla de semestres se apile verticalmente */
+  .semesters-grid {
+    /* En lugar de una grilla de columnas, los elementos se apilan */
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reducir el espacio entre los semestres */
+  }
 
-    /* Hacer que la grilla de semestres se apile verticalmente */
-    .semesters-grid {
-        /* En lugar de una grilla de columnas, los elementos se apilan */
-        grid-template-columns: 1fr; 
-        gap: 10px; /* Reducir el espacio entre los semestres */
-    }
+  .semester-column {
+    padding: 10px; /* Ajustar padding */
+  }
 
-    /* Asegurar que las tarjetas de semestre ocupen todo el ancho */
-    .semester-column {
-        width: 100%;
-        padding: 15px; /* Ajustar padding */
-    }
+  .top h2 {
+    font-size: 20px;
+  }
+  .ramo-card span {
+    font-size: 15px;
+  }
+  /* Ajustar el tamaño del botón flotante */
+  .floating-button {
+    bottom: 1rem;
+    right: 1rem;
+  }
 
-    /* Ajustar el tamaño de fuente en los encabezados */
-    
-    /* Ajustar el tamaño del botón flotante */
-    .floating-button {
-        bottom: 1rem;
-        right: 1rem;
-    }
+  /* Reducir el padding y el tamaño del modal */
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
+}
 
-    /* Reducir el padding y el tamaño del modal */
-    .modal-content {
-        width: 95%;
-        padding: 1rem;
-    }
+@media (max-width: 599px) {
+  .navbar h1 {
+    font-size: 30px;
+  }
+  .centered-container header h1 {
+    font-size: 20px;
+  }
+
+  .semesters-grid-container {
+    /* En pantallas pequeñas, haz que cada semestre ocupe toda la fila */
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+    gap: 10px;
+  }
+  .centered-container header {
+    margin: 0px 10px;
+  }
+  .centered-container {
+    gap: 10px;
+  }
+  /* Ocultar elementos en la pantalla de inicio para móvil */
+  .initial-screen h1 {
+    font-size: 2rem; /* Tamaño de fuente más pequeño para el título */
+  }
+
+  /* Ocultar la grilla de la pantalla de inicio en móvil */
+  .grid-example {
+    display: none;
+  }
+
+  /* Reducir el padding de los contenedores principales */
+  .contenedor,
+  .malla-editor {
+    padding: 5px;
+  }
+
+  /* Hacer que la grilla de semestres se apile verticalmente */
+  .semesters-grid {
+    /* En lugar de una grilla de columnas, los elementos se apilan */
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reducir el espacio entre los semestres */
+  }
+
+  /* Asegurar que las tarjetas de semestre ocupen todo el ancho */
+  .semester-column {
+    padding: 10px; /* Ajustar padding */
+  }
+
+  .top h2 {
+    font-size: 20px;
+  }
+
+  .ramo-card span {
+    font-size: 15px;
+  }
+  /* Ajustar el tamaño del botón flotante */
+  .floating-button {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  /* Reducir el padding y el tamaño del modal */
+  .modal-content {
+    width: 95%;
+    padding: 1rem;
+  }
 }
