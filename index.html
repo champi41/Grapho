@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grapho</title>
-    <link rel="stylesheet" href="style.css">
-    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="navbar">
-        <h1>Grapho</h1>
+      <h1>Grapho</h1>
     </div>
 
     <div class="main" id="initial-screen">
-        <h1>Traza tu camino academico</h1>
-        <p>Organiza tus semestres, gestiona tus ramos y visualiza tus prerrequisitos de forma sencilla y clara.</p>
-        <button id="createMallaBtn" class="primary">Crea tu malla</button>
+      <h1>Traza tu camino academico</h1>
+      <p>
+        Organiza tus semestres, gestiona tus ramos y visualiza tus
+        prerrequisitos de forma sencilla y clara.
+      </p>
+      <button id="createMallaBtn" class="primary">Crea tu malla</button>
     </div>
 
-    <div class="contenedor" id="contenedor" style="display:none;">
-        <div class="contenedorform" id="contenedorform">
-            <h2>Crea tu malla</h2>
-            <div><p>Nombre de tu carrera</p></div>
-            <input type="text" id="career-name" placeholder="Ej: Ingeniería Civil en Computación">
-            <div><p>Cantidad de semestres</p></div>
-            <input type="number" id="semester-count" placeholder="Ej: 10" min="1" max="20">
-            <div class="divboton"> <button id="continueBtn" class="primary">Continuar</button> </div>
+    <div class="contenedor" id="contenedor" style="display: none">
+      <div class="contenedorform" id="contenedorform">
+        <h2>Crea tu malla</h2>
+        <div><p>Nombre de tu carrera</p></div>
+        <input
+          type="text"
+          id="career-name"
+          placeholder="Ej: Ingeniería Civil en Computación"
+        />
+        <div><p>Cantidad de semestres</p></div>
+        <input
+          type="number"
+          id="semester-count"
+          placeholder="Ej: 10"
+          min="1"
+          max="20"
+        />
+        <div class="divboton">
+          <button id="continueBtn" class="primary">Continuar</button>
         </div>
+      </div>
     </div>
 
-    <div class="centered-container" id="malla-editor" style="display:none;">
-
-        <header class="malla-header">
-            <h1>Malla de <span id="display-career-name">[Nombre de la carrera]</span></h1>
-        </header>
-
-        <div id="semesters-grid" class="semesters-grid-container">
-
+    <div class="centered-container" id="malla-editor" style="display: none">
+      <header class="malla-header">
+        <h1>
+          <span id="display-career-name">Malla de [Nombre de la carrera]</span>
+        </h1>
+        <div class="btnMalla">
+          <button class="editnombre">
+            <i class="bx bxs-pencil"></i>
+            <span class="editarspn">Editar nombre</span>
+          </button>
+          <button class="colores">
+            <i class="bx bx-palette bx-flip-horizontal"></i>
+            <span class="paletaspn">Paleta de colores</span>
+          </button>
         </div>
+      </header>
 
+      <div id="semesters-grid" class="semesters-grid-container"></div>
     </div>
-    <div id="edit-modal" class="modal-overlay" style="display:none;">
-        <div class="modal-content">
-            <h3>Editar Ramo</h3>
-            <div class="input-group">
-                <label for="edit-ramo-name">Nombre del Ramo</label>
-                <input type="text" id="edit-ramo-name">
-            </div>
-            <div class="input-group">
-                <label for="prerequisite-select">Establecer Prerrequisito</label>
-                <select id="prerequisite-select">
-                    <option value="">Ninguno</option>
-                </select>
-            </div>
-            <div class="modal-buttons">
-                <button id="delete-ramo-btn" class="delete-btn">
-                    <i class='bx bx-trash' ></i>
-                </button>
-                <button id="close-modal-btn" class="cancelar" >Cancelar</button>
-                <button id="save-edit-btn" class="primary">Guardar</button>
-            </div>
+    <div id="edit-modal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <h3>Editar Ramo</h3>
+        <div class="input-group">
+          <label for="edit-ramo-name">Nombre del Ramo</label>
+          <input type="text" id="edit-ramo-name" />
         </div>
+        <div class="input-group">
+          <label for="prerequisite-select">Establecer Prerrequisito</label>
+          <select id="prerequisite-select">
+            <option value="">Ninguno</option>
+          </select>
+        </div>
+        <div class="modal-buttons">
+          <button id="delete-ramo-btn" class="delete-btn">
+            <i class="bx bx-trash"></i>
+          </button>
+          <button id="close-modal-btn" class="cancelar">Cancelar</button>
+          <button id="save-edit-btn" class="primary">Guardar</button>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>
-</body> 
+  </body>
 </html>
